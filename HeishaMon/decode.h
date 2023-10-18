@@ -120,7 +120,7 @@ static const byte knownModels[sizeof(Model) / sizeof(Model[0])][10] PROGMEM = { 
   0xE2, 0xD5, 0x0B, 0x08, 0x95, 0x02, 0xD6, 0x0E, 0x66, 0x95, //37
 };
 
-#define NUMBER_OF_TOPICS 125 //last topic number + 1
+#define NUMBER_OF_TOPICS 127 //last topic number + 1
 #define NUMBER_OF_TOPICS_EXTRA 6 //last topic number + 1
 #define NUMBER_OF_OPT_TOPICS 7 //last topic number + 1
 #define MAX_TOPIC_LEN 41 // max length + 1
@@ -279,6 +279,8 @@ static const char topics[][MAX_TOPIC_LEN] PROGMEM = {
   "ThreeWay_Valve_State2",   //TOP122
   "Z1_MixValve_Time",        //TOP123
   "Z2_MixValve_Time",        //TOP124
+  "EEV_Valve",               //TOP125
+  "ByPass_Valve",            //TOP126
 };
 
 static const byte topicBytes[] PROGMEM = { //can store the index as byte (8-bit unsigned humber) as there aren't more then 255 bytes (actually only 203 bytes) to decode
@@ -407,6 +409,8 @@ static const byte topicBytes[] PROGMEM = { //can store the index as byte (8-bit 
   116,    //TOP122
   177,    //TOP123
   178,    //TOP124
+  175,    //TOP125
+  176,    //TOP126
 };
 
 
@@ -547,6 +551,9 @@ static const topicFP topicFunctions[] PROGMEM = {
   getBit7and8,         //TOP122
   getIntMinus1,        //TOP123
   getIntMinus1,        //TOP124
+  getIntMinus1,        //TOP125
+  getIntMinus1,        //TOP126
+
 };
 
 static const char *DisabledEnabled[] PROGMEM = {"2", "Disabled", "Enabled"};
@@ -717,4 +724,6 @@ static const char **topicDescription[] PROGMEM = {
   Valve,           //TOP122
   Time,            //TOP123
   Time,            //TOP124
+  Counter,         //TOP125
+  Counter,         //TOP126
 };
