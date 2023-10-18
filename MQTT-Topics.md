@@ -131,7 +131,10 @@ TOP111 | main/Z2_Sensor_Settings | Setting of the sensor for zone 2 (water, ext 
 TOP112 | main/Z1_Sensor_Settings | Setting of the sensor for zone 1 (water, ext thermostat, int. thermostat or thermistor)
 TOP113 | main/Buffer_Tank_Delta | Delta of buffer tank setting in Kelvin
 TOP114 | main/External_Pad_Heater | If the external pad heater is enabled (if installed)
-
+TOP115 | main/External_Control | Is the external control switch enabled
+TOP116 | main/External_Heat_Cool_Control | Is the heat/cool control switch enabled (optional pcb setting)
+TOP117 | main/External_Error_Signal | Is the external error signal enabled
+TOP118 | main/External_Compressor_Control | Is the external compressor control enabled (optional pcb setting)
 
 
 
@@ -190,6 +193,10 @@ SET26 | SetExternalPadHeater | Set the external pad heater | 0=disabled, 1=type-
 SET27 | SetBufferDelta | Set buffer tank delta | 0 - 10
 SET28 | SetBuffer | Set buffer installed | 0=not installed, 1=installed
 SET29 | SetHeatingOffOutdoorTemp | Set Outdoor Temperature to stop heating | 5 to 35
+SET30 | SetExternalControl | Set external control switch | 0=disabled, 1=enabled
+SET31 | SetExternalError | Set external error signal| 0=disabled, 1=enabled
+SET32 | SetExternalCompressorControl | Set external compressor control switch | 0=disabled, 1=enabled
+SET33 | SetExternalHeatCoolControl | Set external heat/cool control switch | 0=disabled, 1=enabled
 
 *If you operate your heatpump with direct temperature setup: topics ending xxxRequestTemperature will set the absolute target temperature*
 
