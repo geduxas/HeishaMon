@@ -120,7 +120,7 @@ static const byte knownModels[sizeof(Model) / sizeof(Model[0])][10] PROGMEM = { 
   0xE2, 0xD5, 0x0B, 0x08, 0x95, 0x02, 0xD6, 0x0E, 0x66, 0x95, //37
 };
 
-#define NUMBER_OF_TOPICS 127 //last topic number + 1
+#define NUMBER_OF_TOPICS 129 //last topic number + 1
 #define NUMBER_OF_TOPICS_EXTRA 6 //last topic number + 1
 #define NUMBER_OF_OPT_TOPICS 7 //last topic number + 1
 #define MAX_TOPIC_LEN 41 // max length + 1
@@ -281,6 +281,8 @@ static const char topics[][MAX_TOPIC_LEN] PROGMEM = {
   "Z2_MixValve_Time",        //TOP124
   "EEV_Valve",               //TOP125
   "ByPass_Valve",            //TOP126
+  "TOP125A",                 //TOP127
+  "TOP125B",                 //TOP128
 };
 
 static const byte topicBytes[] PROGMEM = { //can store the index as byte (8-bit unsigned humber) as there aren't more then 255 bytes (actually only 203 bytes) to decode
@@ -411,6 +413,8 @@ static const byte topicBytes[] PROGMEM = { //can store the index as byte (8-bit 
   178,    //TOP124
   175,    //TOP125
   176,    //TOP126
+  175,    //TOP127
+  175,    //TOP128
 };
 
 
@@ -545,15 +549,16 @@ static const topicFP topicFunctions[] PROGMEM = {
   getBit5and6,         //TOP116
   getBit3and4,         //TOP117
   getBit3and4,         //TOP118
-  getFirstByte,        //TOP119
-  getSecondByte,       //TOP120
+  getBit1and2,         //TOP119
+  getBit3and4,         //TOP120
   getBit5and6,         //TOP121
   getBit7and8,         //TOP122
   getIntMinus1,        //TOP123
   getIntMinus1,        //TOP124
-  getIntMinus1,        //TOP125
+  getSecondByte,       //TOP125
   getIntMinus1,        //TOP126
-
+  getBit1and2,         //TOP127
+  getBit3and4,         //TOP128
 };
 
 static const char *DisabledEnabled[] PROGMEM = {"2", "Disabled", "Enabled"};
@@ -726,4 +731,6 @@ static const char **topicDescription[] PROGMEM = {
   Time,            //TOP124
   Counter,         //TOP125
   Counter,         //TOP126
+  Counter,         //TOP127
+  Counter,         //TOP128
 };
