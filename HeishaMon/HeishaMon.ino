@@ -47,7 +47,7 @@ bool sending = false; // mutex for sending data
 bool mqttcallbackinprogress = false; // mutex for processing mqtt callback
 
 bool extraDataBlockAvailable = false; // this will be set to true if, during boot, heishamon detects this heatpump has extra data block (like K and L series do)
-bool extraDataBlockChecked = true; // this will be true if we already checked for the extra data block
+bool extraDataBlockChecked = false; // this will be true if we already checked for the extra data block
 
 #define MQTTRECONNECTTIMER 30000 //it takes 30 secs for each mqtt server reconnect attempt
 unsigned long lastMqttReconnectAttempt = 0;
