@@ -1277,7 +1277,7 @@ void loop() {
     stats += toolongread;
     stats += F(",\"timeout reads\":");
     stats += timeoutread;
-    stats += F(",\version\":\"");
+    stats += F(",\"version\":\"");
     stats += heishamon_version;
     stats += F("\"}");
     sprintf_P(mqtt_topic, PSTR("%s/stats"), heishamonSettings.mqtt_topic_base);
