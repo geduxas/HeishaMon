@@ -39,6 +39,11 @@ String getRight3bits(byte input) {
   return String((input & 0b111) - 1);
 }
 
+String getRight6bits(byte input) {
+  return String((input & 0b111111) - 1);
+}
+
+
 String getIntMinus1(byte input) {
   int value = (int)input - 1;
   return (String)value;

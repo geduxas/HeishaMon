@@ -22,6 +22,7 @@ String getBit7and8(byte input);
 String getBit3and4and5(byte input);
 String getLeft5bits(byte input);
 String getRight3bits(byte input);
+String getRight6bits(byte input);
 String getIntMinus1(byte input);
 String getIntMinus128(byte input);
 String getIntMinus1Div5(byte input);
@@ -120,7 +121,7 @@ static const byte knownModels[sizeof(Model) / sizeof(Model[0])][10] PROGMEM = { 
   0xE2, 0xD5, 0x0B, 0x08, 0x95, 0x02, 0xD6, 0x0E, 0x66, 0x95, //37
 };
 
-#define NUMBER_OF_TOPICS 129 //last topic number + 1
+#define NUMBER_OF_TOPICS 132 //last topic number + 1
 #define NUMBER_OF_TOPICS_EXTRA 6 //last topic number + 1
 #define NUMBER_OF_OPT_TOPICS 7 //last topic number + 1
 #define MAX_TOPIC_LEN 41 // max length + 1
@@ -282,7 +283,10 @@ static const char topics[][MAX_TOPIC_LEN] PROGMEM = {
   "EEV_Valve",               //TOP125
   "ByPass_Valve",            //TOP126
   "TOP125A",                 //TOP127
-  "TOP125B",                 //TOP128
+  "TOP126A",                 //TOP128
+  "TOP126B",                 //TOP129
+  "TOP126C",                 //TOP130
+  "TOP126D",                 //TOP131
 };
 
 static const byte topicBytes[] PROGMEM = { //can store the index as byte (8-bit unsigned humber) as there aren't more then 255 bytes (actually only 203 bytes) to decode
@@ -414,7 +418,10 @@ static const byte topicBytes[] PROGMEM = { //can store the index as byte (8-bit 
   175,    //TOP125
   176,    //TOP126
   175,    //TOP127
-  175,    //TOP128
+  176,    //TOP128
+  176,    //TOP129
+  176,    //TOP130
+  176,    //TOP131
 };
 
 
@@ -555,10 +562,13 @@ static const topicFP topicFunctions[] PROGMEM = {
   getBit7and8,         //TOP122
   getIntMinus1,        //TOP123
   getIntMinus1,        //TOP124
-  getSecondByte,       //TOP125
+  getRight6bits,       //TOP125
   getIntMinus1,        //TOP126
   getBit1and2,         //TOP127
-  getBit3and4,         //TOP128
+  getBit1and2,         //TOP128
+  getBit3and4,         //TOP129
+  getBit5and6,         //TOP130
+  getBit7and8,         //TOP131
 };
 
 static const char *DisabledEnabled[] PROGMEM = {"2", "Disabled", "Enabled"};
