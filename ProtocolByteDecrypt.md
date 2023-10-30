@@ -119,7 +119,7 @@
 |  TOP44 | 113 | 21 | Hex B1 - F type error, A1 - H type error. After H error reset value 21, F error reset 31  | Error code type |
 |  TOP44 | 114 | 53 | F45 error in HEX 56, calulation 45 treat as HEX and convert to DEC 69 + 17 = 86 (Hex 56) | Error code number |
 |  TOP | 115 | 15 |   | ? |
-|  TOP | 116 | 5a | 1st & 2nd bit Zone 2 Pump ( b01 - OFF, b10 - ON ) ,  3rd & 4th bit = Zone 1 Pump ( b01 - OFF, b10 - ON ), 5th & 6th bit = 2way Valve ( b01 - Cooling, b10 - Heating) , 7th & 8th bit = 3way Valve ( b01 - Room, b10 - Tank)  | Z1 & Z2 Pump 2way & 3wa Valve staus |
+|  TOP115+116+117+118 | 116 | 5a | 1st & 2nd bit Zone 1 Pump ( b01 - OFF, b10 - ON ) ,  3rd & 4th bit = Zone 2 Pump ( b01 - OFF, b10 - ON ), 5th & 6th bit = 2way Valve ( b01 - Cooling, b10 - Heating) , 7th & 8th bit = 3way Valve ( b01 - Room, b10 - Tank)  | Z1 & Z2 Pump 2way & 3wa Valve staus |
 |  TOP69 | 117 | 05 | Sterilization on/off (bit5and6)  , Z2 active (bit7) ,Z1 active (bit8)| Sterilization status Zone active information (look byte #6) |
 |  TOP | 118 | 12 |   | fractional info for TOP5 and TOP6 values |
 |  TOP | 119 | 12 |   | ? |
@@ -180,8 +180,8 @@
 |  TOP63 | 174 | 01 | Convert to DEC (X-1) X10  | Fan 2 Motor Speed [R/Min] |
 |  TOP | 175 | 36 |   | ? |
 |  TOP | 176 | 79 |   | ? |
-|  TOP | 177 | 01 | Convert to DEC -1  | ? Posible Time for Mixing vave 1 Zone2 [seconds]|
-|  TOP | 178 | 01 | Convert to DEC -1  | ? Posible Time for Mixing vave 2 Zone2 [seconds] |
+|  TOP | 177 | 01 | Convert to DEC -1  | ? Time for Mixing vave Zone 1 [seconds]|
+|  TOP | 178 | 01 | Convert to DEC -1  | ? Time for Mixing vave Zone 2 [seconds] |
 |  TOP12 | 179 | c3 | combine both bytes (180 byte) 08 (179 byte) be = 08be= 2238(DEC) - 1 = 2237  | number of operations |
 |  TOP12 | 180 | 02 |  look at 179 | number of operations |
 |  TOP | 181 | 00 |   | 0 byte |

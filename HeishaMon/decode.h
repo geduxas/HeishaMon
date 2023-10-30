@@ -121,7 +121,7 @@ static const byte knownModels[sizeof(Model) / sizeof(Model[0])][10] PROGMEM = { 
   0xE2, 0xD5, 0x0B, 0x08, 0x95, 0x02, 0xD6, 0x0E, 0x66, 0x95, //37
 };
 
-#define NUMBER_OF_TOPICS 115 //last topic number + 1
+#define NUMBER_OF_TOPICS 121 //last topic number + 1
 #define NUMBER_OF_TOPICS_EXTRA 6 //last topic number + 1
 #define NUMBER_OF_OPT_TOPICS 7 //last topic number + 1
 #define MAX_TOPIC_LEN 41 // max length + 1
@@ -270,6 +270,12 @@ static const char topics[][MAX_TOPIC_LEN] PROGMEM = {
   "Z2_Sensor_Settings",      //TOP112
   "Buffer_Tank_Delta",       //TOP113
   "External_Pad_Heater",     //TOP114
+  "Z1_Pump_State",           //TOP115
+  "Z2_Pump_State",           //TOP116
+  "TwoWay_Valve_State",      //TOP117
+  "ThreeWay_Valve_State2",   //TOP118
+  "Z1_MixValve_Time",        //TOP119
+  "Z2_MixValve_Time",        //TOP120
 };
 
 static const byte topicBytes[] PROGMEM = { //can store the index as byte (8-bit unsigned humber) as there aren't more then 255 bytes (actually only 203 bytes) to decode
@@ -388,6 +394,12 @@ static const byte topicBytes[] PROGMEM = { //can store the index as byte (8-bit 
   22,     //TOP112
   59,     //TOP113
   25,     //TOP114
+  116,    //TOP115
+  116,    //TOP116
+  116,    //TOP117
+  116,    //TOP118
+  177,    //TOP119
+  178,    //TOP120
 };
 
 
@@ -518,6 +530,12 @@ static const topicFP topicFunctions[] PROGMEM = {
   getFirstByte,        //TOP112 
   getIntMinus128,      //TOP113
   getBit3and4,         //TOP114
+  getBit1and2,         //TOP115
+  getBit3and4,         //TOP116
+  getBit5and6,         //TOP117
+  getBit7and8,         //TOP118
+  getIntMinus1,        //TOP119
+  getIntMinus1,        //TOP120
 };
 
 static const char *DisabledEnabled[] PROGMEM = {"2", "Disabled", "Enabled"};
@@ -530,6 +548,7 @@ static const char *OpModeDesc[] PROGMEM = {"9", "Heat", "Cool", "Auto(heat)", "D
 static const char *Powerfulmode[] PROGMEM = {"4", "Off", "30min", "60min", "90min"};
 static const char *Quietmode[] PROGMEM = {"4", "Off", "Level 1", "Level 2", "Level 3"};
 static const char *Valve[] PROGMEM = {"2", "Room", "DHW"};
+static const char *Valve2[] PROGMEM = {"2", "Cool", "Heat"};
 static const char *LitersPerMin[] PROGMEM = {"0", "l/min"};
 static const char *RotationsPerMin[] PROGMEM = {"0", "r/min"};
 static const char *Pressure[] PROGMEM = {"0", "Kgf/cm2"};
@@ -549,7 +568,7 @@ static const char *SolarModeDesc[] PROGMEM = {"3", "Disabled", "Buffer", "DHW"};
 static const char *ZonesSensorType[] PROGMEM = {"4", "Water Temperature", "External Thermostat", "Internal Thermostat", "Thermistor"};
 static const char *LiquidType[] PROGMEM = {"2", "Water", "Glycol"};
 static const char *ExtPadHeaterType[] PROGMEM = {"3", "Disabled", "Type-A","Type-B"};
-
+static const char *Time[] PROGMEM = {"0","s"};
 
 static const char **xtopicDescription[] PROGMEM = {
   Watt,           //XTOP0
@@ -676,4 +695,10 @@ static const char **topicDescription[] PROGMEM = {
   ZonesSensorType, //TOP112
   Kelvin,          //TOP113
   ExtPadHeaterType,//TOP114
+  OffOn,           //TOP115
+  OffOn,           //TOP116
+  Valve2,          //TOP117
+  Valve,           //TOP118
+  Time,            //TOP119
+  Time,            //TOP120
 };

@@ -706,6 +706,29 @@ unsigned int set_heatingoffoutdoortemp(char *msg, unsigned char *cmd, char *log_
   
 }
 
+unsigned int set_dhw_heater(char *msg, unsigned char *cmd, char *log_msg) {
+
+  String set_dhw_heater_string(msg);
+
+  byte dhw_heater_mode = 16;
+  if ( set_dhw_heater_string.toInt() == 1 ) {
+    dhw_heater_mode = 32; 
+  }
+
+  {
+    char tmp[256] = { 0 };
+    snprintf_P(tmp, 255, PSTR("set dhw heater to %d"), dhw_heater_mode);
+    memcpy(log_msg, tmp, sizeof(tmp));
+  }
+
+  {
+    memcpy_P(cmd, panasonicSendQuery, sizeof(panasonicSendQuery));
+    cmd[9] = dhw_heater_mode;
+  }
+
+  return sizeof(panasonicSendQuery);
+}
+
 //start of optional pcb commands
 unsigned int set_byte_6(int val, int base, int bit, char *log_msg, const char *func) {
   unsigned char hex = (optionalPCBQuery[6] & ~(base << bit)) | (val << bit);
