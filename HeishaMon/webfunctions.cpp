@@ -211,7 +211,7 @@ void loadSettings(settingsStruct *heishamonSettings) {
           heishamonSettings->optionalPCB = ( jsonDoc["optionalPCB"] == "enabled" ) ? true : false;
           heishamonSettings->opentherm = ( jsonDoc["opentherm"] == "enabled" ) ? true : false;
           if ( jsonDoc["waitTime"]) heishamonSettings->waitTime = jsonDoc["waitTime"];
-          if (heishamonSettings->waitTime < 5) heishamonSettings->waitTime = 5;
+          if (heishamonSettings->waitTime < 1) heishamonSettings->waitTime = 3;
           if ( jsonDoc["waitDallasTime"]) heishamonSettings->waitDallasTime = jsonDoc["waitDallasTime"];
           if (heishamonSettings->waitDallasTime < 5) heishamonSettings->waitDallasTime = 5;
           if ( jsonDoc["dallasResolution"]) heishamonSettings->dallasResolution = jsonDoc["dallasResolution"];

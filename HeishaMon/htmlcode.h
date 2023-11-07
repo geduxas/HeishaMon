@@ -693,7 +693,7 @@ static const char settingsForm2[] PROGMEM =
   "        <td style=\"text-align:right; width: 50%\">"
   "          How often new values are collected from heatpump:</td>"
   "        <td style=\"text-align:left\">"
-  "          <input type=\"number\" name=\"waitTime\" value=\"\"> seconds (min 5 sec)"
+  "          <input type=\"number\" name=\"waitTime\" value=\"\"> seconds (min 1 sec)"
   "        </td>"
   "      </tr>"
   "      <tr>"
