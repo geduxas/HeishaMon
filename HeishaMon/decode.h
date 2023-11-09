@@ -563,7 +563,7 @@ static const topicFP topicFunctions[] PROGMEM = {
   getBit7and8,         //TOP122
   getIntMinus1,        //TOP123
   getIntMinus1,        //TOP124
-  getRight6bits,       //TOP125
+  getIntMinus1,        //TOP125
   getIntMinus1,        //TOP126
   getBit1and2,         //TOP127
   getBit1and2,         //TOP128
