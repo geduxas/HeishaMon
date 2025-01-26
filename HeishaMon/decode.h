@@ -42,7 +42,7 @@ static const char _unknown[] PROGMEM = "unknown";
 
 
 
-#define NUMBER_OF_TOPICS 139 //last topic number + 1
+#define NUMBER_OF_TOPICS 146 //last topic number + 1
 #define NUMBER_OF_TOPICS_EXTRA 6 //last topic number + 1
 #define NUMBER_OF_OPT_TOPICS 7 //last topic number + 1
 #define MAX_TOPIC_LEN 42 // max length + 1
@@ -215,6 +215,13 @@ static const char topics[][MAX_TOPIC_LEN] PROGMEM = {
   "Bivalent_Advanced_Start_Delay",//TOP136
   "Bivalent_Advanced_Stop_Delay",//TOP137
   "Bivalent_Advanced_DHW_Delay",//TOP138
+  "EEV_Valve",               //TOP139
+  "ByPass_Valve",            //TOP140
+  "TOP139A",                 //TOP141
+  "TOP140A",                 //TOP142
+  "TOP140B",                 //TOP143
+  "TOP140C",                 //TOP144
+  "TOP140D",                 //TOP145
 };
 
 static const byte topicBytes[] PROGMEM = { //can store the index as byte (8-bit unsigned humber) as there aren't more then 255 bytes (actually only 203 bytes) to decode
@@ -357,6 +364,13 @@ static const byte topicBytes[] PROGMEM = { //can store the index as byte (8-bit 
   67,    //TOP136
   69,    //TOP137
   70,    //TOP138
+  175,    //TOP139
+  176,    //TOP140
+  175,    //TOP141
+  176,    //TOP142
+  176,    //TOP143
+  176,    //TOP144
+  176,    //TOP145
 };
 
 
@@ -511,6 +525,13 @@ static const topicFP topicFunctions[] PROGMEM = {
   getIntMinus1,      //TOP136
   getIntMinus1,      //TOP137
   getIntMinus1,      //TOP138
+  getIntMinus1,        //TOP139
+  getIntMinus1,        //TOP140
+  getBit1and2,         //TOP141
+  getBit1and2,         //TOP142
+  getBit3and4,         //TOP143
+  getBit5and6,         //TOP144
+  getBit7and8,         //TOP145
 };
 
 static const char *DisabledEnabled[] PROGMEM = {"2", "Disabled", "Enabled"};
@@ -708,4 +729,11 @@ static const char **topicDescription[] PROGMEM = {
   Minutes,         //TOP136
   Minutes,         //TOP137
   Minutes,         //TOP138
+  Counter,         //TOP139
+  Counter,         //TOP140
+  Counter,         //TOP141
+  Counter,         //TOP142
+  Counter,         //TOP143
+  Counter,         //TOP144
+  Counter,         //TOP145
 };
